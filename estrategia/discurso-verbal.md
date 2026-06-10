@@ -1,4 +1,4 @@
-# Discurso Verbal — Community Counselours
+# Discurso Verbal — Community Counselors
 
 ---
 
@@ -10,7 +10,7 @@ Não é que ele acorda um dia com uma ideia genial e decide tentar. Ele acorda u
 
 A pesquisa do professor Peter Kalum Schou, apresentada na Academy of Management, identificou um perfil de empreendedor chamado de "Predestined". São founders que enxergam o empreendedorismo não como uma escolha de carreira, mas como uma vocação. Algo que eles foram escolhidos para fazer desde o início.* Podem ter nascido para empreender ou descoberto ao longo do caminho, mas em algum ponto reconheceram: isso não foi eu que escolhi. Isso escolheu a mim.
 
-Esse é o perfil que a Community Counselours busca. Founders que operam a partir de um lugar mais profundo que ambição. Que não criam empresas só para ganhar dinheiro, mas porque sentem que não teriam como fazer diferente.
+Esse é o perfil que a Community Counselors busca. Founders que operam a partir de um lugar mais profundo que ambição. Que não criam empresas só para ganhar dinheiro, mas porque sentem que não teriam como fazer diferente.
 
 ---
 
@@ -24,13 +24,13 @@ Quem tem os recursos, o talento, a criatividade e o acesso para resolver os maio
 
 O problema é que esses founders cristãos de Geração Z estão, em sua maioria, isolados. Sem uma comunidade que fale a língua deles. Sem um espaço onde fé e negócios não sejam mundos separados. Sem pares que entendam a tensão entre crescer como empresa e crescer como pessoa.
 
-Esse isolamento tem um custo. E a Community Counselours existe para eliminar esse custo.
+Esse isolamento tem um custo. E a Community Counselors existe para eliminar esse custo.
 
 ---
 
-## Parte 3: O Que É a Community Counselours
+## Parte 3: O Que É a Community Counselors
 
-A Community Counselours é uma comunidade fechada para founders cristãos da Geração Z.
+A Community Counselors é uma comunidade fechada para founders cristãos da Geração Z.
 
 Não é um grupo de estudo bíblico. Não é uma aceleradora. Não é um networking de negócios com versículo no final.
 
@@ -48,7 +48,7 @@ Os três pilares que organizam tudo dentro da comunidade são:
 
 ## Parte 4: O Que Oferecemos
 
-Na Community Counselours, o que os membros encontram é:
+Na Community Counselors, o que os membros encontram é:
 
 Encontros regulares com founders que estão no mesmo nível de jornada. Sem palco, sem guru, sem posição. Só pares.
 
@@ -64,7 +64,7 @@ Mapeamento de competências. Cada membro traz algo único. A comunidade existe p
 
 Se você está construindo algo e sente que carrega uma chamada por trás disso, esta conversa é para você.
 
-A Community Counselours está na fase de reunir seus membros fundadores. Oito pessoas que vão ajudar a definir o que essa comunidade vai ser. Que vão entrar antes de tudo estar pronto e ajudar a construir junto.
+A Community Counselors está na fase de reunir seus membros fundadores. Oito pessoas que vão ajudar a definir o que essa comunidade vai ser. Que vão entrar antes de tudo estar pronto e ajudar a construir junto.
 
 Não precisa ter chegado em algum lugar. Precisa estar no caminho.
 
