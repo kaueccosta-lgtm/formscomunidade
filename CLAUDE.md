@@ -138,6 +138,20 @@ Não precisa ter chegado em algum lugar. Precisa estar no caminho.
 
 ---
 
+## CALENDÁRIO DE CONTEÚDO — JUNHO 2026
+
+**Regra:** 1 post por semana · TikTok + Instagram · Sem rosto · Objetivo: mostrar que a comunidade existe
+
+| Semana | Tipo | Resumo |
+|---|---|---|
+| Semana 2 (14–20/jun) | Bastidores | "Algo está sendo construído. Uma comunidade para founders cristãos da Geração Z que não separam fé de negócio. Ainda não está pronto. Esse é o ponto." |
+| Semana 3 (21–27/jun) | Dados e pesquisa | "Existe um tipo de founder que não escolheu empreender. Foi chamado. A pesquisa chama esse perfil de Predestinado. Se você se reconheceu — esse conteúdo é para você." |
+| Semana 4 (28–30/jun) | Founders cristãos | Uma história curta de um founder que construiu algo grande operando a partir de fé. Founder a definir. |
+
+**Formato:** Texto em tela escura · Tipografia grande · Sem narração · Música ambiente · Estética alinhada ao dossier
+
+---
+
 ## ARQUIVOS DO PROJETO
 
 - `estrategia/discurso-verbal.md` — discurso verbal (5 atos)
