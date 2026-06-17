@@ -30,3 +30,19 @@ Um aspecto interessante é que o clube busca integrar diferentes atores do ecoss
 **Fé:** integração entre princípios cristãos e a jornada empreendedora, fortalecendo vocação, propósito e responsabilidade na gestão dos negócios.
 
 ---
+
+## Bio — LinkedIn
+
+A Community Counselors é uma comunidade exclusiva para founders cristãos da Geração Z que não separam fé de negócio.
+
+Somos uma comunidade fechada para founders cristãos da Geração Z. Sem palco, sem guru, sem hierarquia. Só pares construindo juntos — com vocação, propósito e mordomia como fundamento.
+
+O que os membros encontram:
+— Encontros presenciais com founders no mesmo nível de jornada
+— Mentorias, conteúdos práticos e experiências compartilhadas
+— Conexões genuínas que geram parcerias, projetos e crescimento real
+— Um espaço onde fé é fundamento estratégico, não decoração
+
+Estamos reunindo os primeiros membros em São Paulo, se você tem esse perfil entra em contato vamos conversar!
+
+---
