@@ -6,7 +6,7 @@
 
 | Categoria | KPIs |
 |---|---|
-| **Comunidade** | • 15+ pessoas contatadas<br>• 8 membros fundadores definidos<br>• 10 entrevistas de pesquisa realizadas<br>• +10 novos nomes via indicação<br>• 1 formato de encontro testado<br>• Tese com análise de dados concluída |
+| **Comunidade** | • 15+ pessoas contatadas<br>• Membros fundadores definidos<br>• 10 entrevistas de pesquisa realizadas<br>• +10 novos nomes via indicação<br>• 1 formato de encontro testado<br>• Tese com análise de dados concluída |
 | **Membros e Empresas** | • 2–3 encontros presenciais com empreendedores experientes<br>• 1–2 jantares ou encontros sociais só entre membros |
 
 ---

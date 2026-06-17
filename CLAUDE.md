@@ -72,7 +72,7 @@ Esse convite é para quem cansou de adiar.
 
 Para quem tem uma chamada clara, mas ainda não encontrou um lugar onde ela seja levada a sério. Para quem quer construir algo grande e sente que precisa de pares que entendam o peso disso — não só do negócio, mas do que está por trás dele.
 
-A Community Counselors está na fase de reunir seus membros fundadores. Oito pessoas que vão ajudar a definir o que essa comunidade vai ser. Que vão entrar antes de tudo estar pronto e ajudar a construir junto.
+A Community Counselors está na fase de reunir seus membros fundadores. Pessoas que vão ajudar a definir o que essa comunidade vai ser. Que vão entrar antes de tudo estar pronto e ajudar a construir junto.
 
 Não precisa ter chegado em algum lugar. Precisa estar no caminho.
 
@@ -86,7 +86,7 @@ Se você quiser saber mais, posso te contar com mais detalhe o que estamos const
 
 | Categoria | KPIs |
 |---|---|
-| **Comunidade** | 15+ pessoas contatadas · 8 membros fundadores definidos · 10 entrevistas de pesquisa realizadas · +10 novos nomes via indicação · 1 formato de encontro testado · Tese com análise de dados concluída |
+| **Comunidade** | 15+ pessoas contatadas · Membros fundadores definidos · 10 entrevistas de pesquisa realizadas · +10 novos nomes via indicação · 1 formato de encontro testado · Tese com análise de dados concluída |
 | **Membros e Empresas** | 2–3 encontros presenciais com empreendedores experientes · 1–2 jantares ou encontros sociais só entre membros |
 
 ### 6 meses–1 ano — Comunidade Embrionária

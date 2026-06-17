@@ -64,7 +64,7 @@ Mapeamento de competências. Cada membro traz algo único. A comunidade existe p
 
 Se você está construindo algo e sente que carrega uma chamada por trás disso, esta conversa é para você.
 
-A Community Counselors está na fase de reunir seus membros fundadores. Oito pessoas que vão ajudar a definir o que essa comunidade vai ser. Que vão entrar antes de tudo estar pronto e ajudar a construir junto.
+A Community Counselors está na fase de reunir seus membros fundadores. Pessoas que vão ajudar a definir o que essa comunidade vai ser. Que vão entrar antes de tudo estar pronto e ajudar a construir junto.
 
 Não precisa ter chegado em algum lugar. Precisa estar no caminho.
 

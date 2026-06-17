@@ -16,7 +16,7 @@ Ao ser invocado:
 - Fim do mês: revisar metas, atualizar status, definir foco dos próximos 3 meses
 
 **Frentes estratégicas de junho:**
-1. Convites — meta: 8/8 contatados
+1. Convites — meta: todos contatados
 2. Entrevistas — meta: 6 realizadas
 3. Indicações — meta: +6 novos nomes
 4. Onboarding — Paulo e Isaque já aceitaram
