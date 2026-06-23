@@ -185,6 +185,7 @@ Se você quiser saber mais, posso te contar com mais detalhe o que estamos const
 - **Não usa** jargão cristão excessivo — fala com founders, não com fiéis
 - **Não é guru, não é palco** — é entre pares
 - Linguagem da Geração Z + profundidade teológica + visão de negócio
+- **NUNCA usar travessão** em nenhum texto produzido
 
 ---
 
