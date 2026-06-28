@@ -160,7 +160,9 @@ Se você quiser saber mais, posso te contar com mais detalhe o que estamos const
 |---|---|
 | 28/jun (dom) | Estratégia — avaliar mês e planejar julho · Definir post semana 4 |
 | 29/jun (seg) | Copy do post — Founder cristão · Forms de Tese |
-| 30/jun (ter) | Publicar post — Founder cristão · Revisão do mês · Lista expandida · Análise parcial |
+| 30/jun (ter) | Publicar post — Founder cristão · Revisão do mês · Lista expandida · Análise parcial · **Escrever sobre a tese** |
+
+**Regra fixa (toda quinta-feira):** Escrever sobre a tese
 
 ---
 
