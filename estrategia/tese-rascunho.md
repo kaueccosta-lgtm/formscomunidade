@@ -52,5 +52,9 @@ Estamos reunindo os primeiros membros em São Paulo, se você tem esse perfil en
 | Organização | Link | Status |
 |---|---|---|
 | Escola do Jonas | https://www.linkedin.com/company/escola-do-jonas/ | A estudar |
+| Strive | https://www.linkedin.com/company/strive2022/ | A estudar |
+| Instituto 12 | https://www.linkedin.com/company/instituto-12/ | A estudar |
+| Go Founders | https://www.linkedin.com/company/gofoundersbr/ | A estudar |
+| Academia Lendária | https://www.linkedin.com/company/academia-lendar-ia/ | A estudar |
 
 ---
