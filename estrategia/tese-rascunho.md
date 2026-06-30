@@ -46,3 +46,11 @@ O que os membros encontram:
 Estamos reunindo os primeiros membros em São Paulo, se você tem esse perfil entra em contato vamos conversar!
 
 ---
+
+## Benchmarking — Comunidades para estudar
+
+| Organização | Link | Status |
+|---|---|---|
+| Escola do Jonas | https://www.linkedin.com/company/escola-do-jonas/ | A estudar |
+
+---
