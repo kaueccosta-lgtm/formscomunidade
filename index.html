@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Counselours Club — Formulário de Comunidade</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #12111a;
+            --accent: #c9a84c;
+            --accent-hover: #b8943e;
+            --bg: #f7f5f0;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --muted: #6b7280;
+            --border: #e5e0d5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: var(--primary);
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .header p { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 3px; }
+
+        /* ── Progress ── */
+        .progress-wrap {
+            background: var(--primary);
+            padding: 0 20px 14px;
+        }
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.72rem;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            background: rgba(255,255,255,0.12);
+            border-radius: 100px;
+            height: 3px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: var(--accent);
+            height: 100%;
+            border-radius: 100px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 28px 16px 80px;
+        }
+
+        /* ── Steps ── */
+        .step { display: none; }
+        .step.active {
+            display: block;
+            animation: up 0.3s ease;
+        }
+        @keyframes up {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Welcome card ── */
+        .welcome {
+            background: var(--primary);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .welcome .mark { font-size: 2.2rem; margin-bottom: 14px; }
+        .welcome h2 { color: var(--accent); font-size: 1.45rem; margin-bottom: 8px; }
+        .welcome p { color: rgba(255,255,255,0.68); font-size: 0.88rem; line-height: 1.75; }
+        .welcome-stats {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+        .stat {
+            background: rgba(255,255,255,0.07);
+            border-radius: 8px;
+            padding: 8px 18px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+        }
+        .stat strong { color: var(--accent); display: block; font-size: 1.05rem; }
+
+        /* ── Section labels ── */
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .section-title { font-size: 1.35rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .section-sub { color: var(--muted); font-size: 0.87rem; margin-bottom: 24px; }
+
+        /* ── Flow badge ── */
+        .flow-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.73rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+        }
+        .badge-a { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+        .badge-b { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+
+        /* ── Flow selector ── */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .flow-card {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            background: white;
+        }
+        .flow-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(201,168,76,0.12);
+        }
+        .flow-card.selected { border-color: var(--accent); background: #fffdf5; }
+        .flow-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .flow-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .flow-card p { font-size: 0.76rem; color: var(--muted); line-height: 1.45; }
+
+        /* ── Question card ── */
+        .qcard {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 14px;
+        }
+        .qnum {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .qtext {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+        .qhint { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 14px; }
+
+        /* ── Inputs ── */
+        textarea, input[type="text"], input[type="email"], input[type="tel"], select {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 11px 13px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: var(--text);
+            background: #fafaf8;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        textarea { resize: vertical; min-height: 96px; }
+        textarea:focus, input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+        }
+        .input-row { display: flex; gap: 10px; }
+        .input-row > * { flex: 1; }
+        .input-col { display: flex; flex-direction: column; gap: 10px; }
+
+        /* ── Options ── */
+        .options { display: flex; flex-direction: column; gap: 7px; margin-bottom: 12px; }
+        .opt {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 13px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+            background: #fafaf8;
+            font-size: 0.87rem;
+        }
+        .opt:hover { border-color: var(--accent); background: #fffdf5; }
+        .opt.sel    { border-color: var(--accent); background: #fffdf5; }
+        .opt input  { accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+
+        /* ── Buttons ── */
+        .btn-row { display: flex; gap: 10px; margin-top: 26px; }
+        .btn {
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: var(--accent); color: var(--primary); flex: 1; }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .btn-back { background: transparent; color: var(--muted); border: 1.5px solid var(--border); }
+        .btn-back:hover { border-color: var(--muted); color: var(--text); }
+
+        /* ── Success ── */
+        .success {
+            text-align: center;
+            padding: 48px 0;
+        }
+        .success .mark { font-size: 3rem; margin-bottom: 18px; }
+        .success h2 { font-size: 1.55rem; color: var(--primary); margin-bottom: 10px; }
+        .success p { color: var(--muted); font-size: 0.9rem; max-width: 400px; margin: 0 auto 8px; }
+        .verse {
+            background: #fffdf5;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: #92400e;
+            font-style: italic;
+        }
+
+        /* ── Link para outro form ── */
+        .other-form {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .other-form p { font-size: 0.82rem; color: var(--muted); }
+        .other-form strong { display: block; font-size: 0.9rem; color: var(--primary); margin-bottom: 2px; }
+        .other-form a {
+            background: var(--primary);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 480px) {
+            .flow-grid  { grid-template-columns: 1fr; }
+            .input-row  { flex-direction: column; }
+            .welcome    { padding: 28px 18px; }
+            .qcard      { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>The Counselours Club</h1>
+    <p>Formulário de Comunidade · 15–20 min</p>
+</div>
+<div class="progress-wrap">
+    <div class="progress-meta">
+        <span id="pLabel">Início</span>
+        <span id="pPct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
+</div>
+
+<div class="container">
+
+    <!-- ════════════════════════════════ STEP 0: Boas-vindas + fluxo ════ -->
+    <div class="step active" id="step-0">
+        <div class="welcome">
+            <div class="mark">✦</div>
+            <h2>The Counselours Club</h2>
+            <p>Obrigado por dedicar seu tempo. Este formulário nos ajuda a entender seu perfil e validar a proposta de comunidade para founders que integram fé, propósito e empreendedorismo.</p>
+            <div class="welcome-stats">
+                <div class="stat"><strong>12</strong>perguntas</div>
+                <div class="stat"><strong>15–20</strong>minutos</div>
+                <div class="stat"><strong>3</strong>blocos</div>
+            </div>
+        </div>
+
+        <div class="qcard">
+            <div class="qnum">Antes de começar</div>
+            <div class="qtext">Você empreende atualmente?</div>
+            <div class="qhint">Sua resposta define quais perguntas fazem mais sentido para o seu momento.</div>
+            <div class="flow-grid">
+                <div class="flow-card" id="cardA" onclick="selectFlow('A')">
+                    <div class="icon">🚀</div>
+                    <h3>Sim, empreendo</h3>
+                    <p>Tenho um negócio, startup ou projeto rodando</p>
+                </div>
+                <div class="flow-card" id="cardB" onclick="selectFlow('B')">
+                    <div class="icon">💡</div>
+                    <h3>Ainda não</h3>
+                    <p>Estou na ideia, validação ou ainda não comecei</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="nextStep()">Começar →</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════ STEP 1: Dados de contato ════════ -->
+    <div class="step" id="step-1">
+        <div id="badge1"></div>
+        <span class="tag">Dados de contato</span>
+        <h2 class="section-title">Vamos nos conhecer</h2>
+        <p class="section-sub">Suas informações são confidenciais e usadas somente para esta pesquisa.</p>
+
+        <div class="qcard">
+            <div class="qnum">Nome completo</div>
+            <div class="qtext">Como você se chama?</div>
+            <div class="input-row" style="margin-top:12px;">
+                <input type="text" id="firstName" placeholder="Nome">
+                <input type="text" id="lastName" placeholder="Sobrenome">
+            </div>
+        </div>
+
+        <div class="qcard">
+            <div class="qnum">Contato</div>
+            <div class="qtext">E-mail e WhatsApp</div>
+            <div class="input-col" style="margin-top:12px;">
+                <input type="email" id="email" placeholder="seu@email.com">
+                <input type="tel" id="phone" placeholder="(11) 9 0000-0000">
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════ STEP 2: P1 + P2 (ambos) ════════ -->
+    <div class="step" id="step-2">
+        <div id="badge2"></div>
+        <span class="tag">Bloco 1 · Perfil e Motivação</span>
+        <h2 class="section-title">Sua jornada</h2>
+        <p class="section-sub">Queremos entender o que te move.</p>
+
+        <!-- P1 -->
+        <div class="qcard">
+            <div class="qnum">P1</div>
+            <div class="qtext">"O que te fez começar? Qual foi a dor ou motivação que te trouxe até aqui?"</div>
+            <textarea id="p1" placeholder="Conte sua história..."></textarea>
+        </div>
+
+        <!-- P2 -->
+        <div class="qcard">
+            <div class="qnum">P2</div>
+            <div class="qtext">"Sua motivação maior é financeira, pessoal (realização, legado), impacto social, ou espiritual? Por quê?"</div>
+            <div class="qhint">Escolha a principal e explique a seguir.</div>
+            <div class="options">
+                <label class="opt" onclick="pickOpt(this,'p2')">
+                    <input type="radio" name="p2" value="financeira">
+                    <span>💰 Financeira — geração de riqueza, independência</span>
+                </label>
+                <label class="opt" onclick="pickOpt(this,'p2')">
+                    <input type="radio" name="p2" value="pessoal">
+                    <span>🌱 Pessoal — realização, legado, crescimento</span>
+                </label>
+                <label class="opt" onclick="pickOpt(this,'p2')">
+                    <input type="radio" name="p2" value="social">
+                    <span>🤝 Impacto social — transformar comunidade, causas</span>
+                </label>
+                <label class="opt" onclick="pickOpt(this,'p2')">
+                    <input type="radio" name="p2" value="espiritual">
+                    <span>✦ Espiritual — chamado, propósito, fé</span>
+                </label>
+            </div>
+            <textarea id="p2why" placeholder="Por quê? Elabore..."></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════ STEP 3: P3–P6 (Fluxo A) ════════ -->
+    <div class="step" id="step-3">
+        <div id="badge3"></div>
+        <span class="tag">Bloco 1 · Perfil e Motivação</span>
+        <h2 class="section-title">Seu negócio</h2>
+        <p class="section-sub">Nos conte sobre sua empresa e sua trajetória.</p>
+
+        <!-- P3 -->
+        <div class="qcard">
+            <div class="qnum">P3 · Fluxo A</div>
+            <div class="qtext">"Qual é a média de faturamento da sua empresa/startup hoje?"</div>
+            <div class="options" style="margin-top:12px;">
+                <label class="opt" onclick="pickOpt(this,'p3')"><input type="radio" name="p3" value="pre-receita"> <span>Pré-receita (ainda não fatura)</span></label>
+                <label class="opt" onclick="pickOpt(this,'p3')"><input type="radio" name="p3" value="ate-50k"> <span>Até R$ 50 mil/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p3')"><input type="radio" name="p3" value="50k-200k"> <span>R$ 50 mil – R$ 200 mil/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p3')"><input type="radio" name="p3" value="200k-1m"> <span>R$ 200 mil – R$ 1 milhão/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p3')"><input type="radio" name="p3" value="acima-1m"> <span>Acima de R$ 1 milhão/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p3')"><input type="radio" name="p3" value="nao-informar"> <span>Prefiro não informar</span></label>
+            </div>
+        </div>
+
+        <!-- P4 -->
+        <div class="qcard">
+            <div class="qnum">P4 · Fluxo A</div>
+            <div class="qtext">"Você já tem parcerias com organizações, hubs, aceleradoras ou outros tipos de apoio?"</div>
+            <div class="options" style="margin-top:12px; margin-bottom:10px;">
+                <label class="opt" onclick="pickOpt(this,'p4yn')"><input type="radio" name="p4yn" value="sim"> <span>Sim</span></label>
+                <label class="opt" onclick="pickOpt(this,'p4yn')"><input type="radio" name="p4yn" value="nao"> <span>Não</span></label>
+            </div>
+            <textarea id="p4detail" placeholder="Se sim, quais? Como tem sido essa relação?"></textarea>
+        </div>
+
+        <!-- P5 -->
+        <div class="qcard">
+            <div class="qnum">P5 · Fluxo A</div>
+            <div class="qtext">"Você já recebeu algum tipo de investimento? (anjo, VC, CVC, acelerador, etc)"</div>
+            <div class="options" style="margin-top:12px; margin-bottom:10px;">
+                <label class="opt" onclick="pickOpt(this,'p5yn')"><input type="radio" name="p5yn" value="sim"> <span>Sim</span></label>
+                <label class="opt" onclick="pickOpt(this,'p5yn')"><input type="radio" name="p5yn" value="nao"> <span>Não</span></label>
+            </div>
+            <textarea id="p5detail" placeholder="Se sim, qual tipo? Em que fase?"></textarea>
+        </div>
+
+        <!-- P6 -->
+        <div class="qcard">
+            <div class="qnum">P6 · Fluxo A</div>
+            <div class="qtext">"Me conta o que é o seu negócio — o que você faz ou vende?"</div>
+            <textarea id="p6" placeholder="Descreva seu produto, serviço, modelo de negócio..." style="margin-top:12px;"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════ STEP 4: P7–P9 (Bloco 2) ════════ -->
+    <div class="step" id="step-4">
+        <div id="badge4"></div>
+        <span class="tag">Bloco 2 · Comunidade e Rede</span>
+        <h2 class="section-title">Sua rede e comunidade</h2>
+        <p class="section-sub">Como você se conecta com outros empreendedores e com sua fé.</p>
+
+        <!-- P7 -->
+        <div class="qcard">
+            <div class="qnum">P7</div>
+            <div class="qtext">"Você já participa de alguma comunidade de founders ou grupos de empreendedores? Se sim, qual é — e essa comunidade é cristã ou não?"</div>
+            <div class="options" style="margin-top:12px; margin-bottom:10px;">
+                <label class="opt" onclick="pickOpt(this,'p7yn')"><input type="radio" name="p7yn" value="sim-crista"> <span>Sim, e é cristã</span></label>
+                <label class="opt" onclick="pickOpt(this,'p7yn')"><input type="radio" name="p7yn" value="sim-secular"> <span>Sim, mas não é cristã</span></label>
+                <label class="opt" onclick="pickOpt(this,'p7yn')"><input type="radio" name="p7yn" value="nao"> <span>Não participo de nenhuma</span></label>
+            </div>
+            <textarea id="p7detail" placeholder="Se sim, qual comunidade? Como tem sido?"></textarea>
+        </div>
+
+        <!-- P8 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P8</div>
+            <div class="qtext" id="p8q">"Qual é o seu maior desafio como founder nessa fase?"</div>
+            <textarea id="p8" placeholder="Descreva o maior desafio..." style="margin-top:12px;"></textarea>
+        </div>
+
+        <!-- P9 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P9</div>
+            <div class="qtext" id="p9q">"Sua comunidade de fé te apoia em empreender ou vê isso com ressalvas? Como isso afeta você?"</div>
+            <textarea id="p9" placeholder="Conte como é essa relação..." style="margin-top:12px;"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════ STEP 5: P10–P12 (Bloco 3) ═══════ -->
+    <div class="step" id="step-5">
+        <div id="badge5"></div>
+        <span class="tag">Bloco 3 · Interesse na Comunidade</span>
+        <h2 class="section-title">The Counselours Club</h2>
+        <p class="section-sub">O que tornaria essa comunidade relevante para você.</p>
+
+        <!-- P10 -->
+        <div class="qcard">
+            <div class="qnum">P10</div>
+            <div class="qtext">"O que teria valor para você participar de uma comunidade de founders que pensam como você — sobre fé, propósito e impacto?"</div>
+            <div class="qhint">Selecione tudo que faz sentido e complemente abaixo.</div>
+            <div class="options">
+                <label class="opt" onclick="toggleCheck(this)"><input type="checkbox" value="mentoria"> <span>Mentoria com founders experientes</span></label>
+                <label class="opt" onclick="toggleCheck(this)"><input type="checkbox" value="networking"> <span>Conexão com outros founders de fé</span></label>
+                <label class="opt" onclick="toggleCheck(this)"><input type="checkbox" value="accountability"> <span>Grupos de accountability</span></label>
+                <label class="opt" onclick="toggleCheck(this)"><input type="checkbox" value="conteudo"> <span>Conteúdo sobre fé e empreendedorismo</span></label>
+                <label class="opt" onclick="toggleCheck(this)"><input type="checkbox" value="eventos"> <span>Eventos e encontros presenciais</span></label>
+                <label class="opt" onclick="toggleCheck(this)"><input type="checkbox" value="oracao"> <span>Oração e suporte espiritual coletivo</span></label>
+            </div>
+            <textarea id="p10" placeholder="O que mais você adicionaria?"></textarea>
+        </div>
+
+        <!-- P11 -->
+        <div class="qcard">
+            <div class="qnum">P11</div>
+            <div class="qtext">"Se houvesse uma taxa de participação — o que ela precisaria oferecer para ser um investimento válido para você?"</div>
+            <div class="options" style="margin-top:12px; margin-bottom:10px;">
+                <label class="opt" onclick="pickOpt(this,'p11p')"><input type="radio" name="p11p" value="gratis"> <span>Não pagaria — precisa ser gratuita</span></label>
+                <label class="opt" onclick="pickOpt(this,'p11p')"><input type="radio" name="p11p" value="ate-100"> <span>Até R$ 100/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p11p')"><input type="radio" name="p11p" value="100-300"> <span>R$ 100 – R$ 300/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p11p')"><input type="radio" name="p11p" value="300-600"> <span>R$ 300 – R$ 600/mês</span></label>
+                <label class="opt" onclick="pickOpt(this,'p11p')"><input type="radio" name="p11p" value="600+"> <span>Acima de R$ 600/mês</span></label>
+            </div>
+            <textarea id="p11" placeholder="O que essa contribuição precisaria oferecer para fazer sentido?"></textarea>
+        </div>
+
+        <!-- P12 -->
+        <div class="qcard">
+            <div class="qnum">P12</div>
+            <div class="qtext">"Tem alguma história — de alguém que você viu, leu ou ouviu — que faz você acreditar que é possível empreender com fé?"</div>
+            <textarea id="p12" placeholder="Compartilhe a história ou referência que te inspira..." style="margin-top:12px;"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="submitForm()">Enviar resposta ✦</button>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════ STEP 6: Confirmação ═════════════ -->
+    <div class="step" id="step-6">
+        <div class="success">
+            <div class="mark">✦</div>
+            <h2>Obrigado pela sua participação!</h2>
+            <p>Suas respostas foram registradas e vão contribuir diretamente com a construção da The Counselours Club.</p>
+            <p>Em breve entraremos em contato para os próximos passos.</p>
+            <div class="verse">
+                "Commita tuas obras ao Senhor, e teus pensamentos serão estabelecidos."<br>
+                — Provérbios 16:3
+            </div>
+            <div class="other-form">
+                <div>
+                    <strong>Quer contribuir com a pesquisa da tese?</strong>
+                    <p>Preencha também o roteiro de pesquisa — são mais 12 perguntas sobre fé e propósito.</p>
+                </div>
+                <a href="pesquisa.html">Abrir →</a>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /container -->
+
+<script>
+    let step = 0;
+    let flow = null;
+    const TOTAL = 5;
+
+    const STEPS = ['Início','Contato','Bloco 1','Bloco 1','Bloco 2','Bloco 3','Concluído'];
+
+    /* ── Fluxo ── */
+    function selectFlow(f) {
+        flow = f;
+        document.getElementById('cardA').classList.toggle('selected', f === 'A');
+        document.getElementById('cardB').classList.toggle('selected', f === 'B');
+    }
+
+    /* ── Opções ── */
+    function pickOpt(el, name) {
+        el.closest('.options').querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+        el.classList.add('sel');
+    }
+    function toggleCheck(el) { el.classList.toggle('sel'); }
+
+    /* ── Navegação ── */
+    function nextStep() {
+        if (step === 0 && !flow) {
+            alert('Selecione se você empreende ou não para continuar.');
+            return;
+        }
+        let next = step + 1;
+        // Fluxo B pula step 3 (P3–P6)
+        if (flow === 'B' && step === 2) next = 4;
+
+        go(next);
+    }
+
+    function prevStep() {
+        let prev = step - 1;
+        // Fluxo B pula step 3 ao voltar
+        if (flow === 'B' && step === 4) prev = 2;
+        go(prev);
+    }
+
+    function go(n) {
+        document.getElementById('step-' + step).classList.remove('active');
+        step = n;
+        document.getElementById('step-' + step).classList.add('active');
+        applyFlow();
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ── Aplicar fluxo ── */
+    function applyFlow() {
+        if (!flow) return;
+
+        // badges
+        const badgeHTML = flow === 'A'
+            ? '<div class="flow-badge badge-a">🚀 Fluxo A — Empreendedor</div>'
+            : '<div class="flow-badge badge-b">💡 Fluxo B — Em exploração</div>';
+        [1,2,3,4,5].forEach(i => {
+            const el = document.getElementById('badge' + i);
+            if (el) el.innerHTML = badgeHTML;
+        });
+
+        // perguntas P8 e P9 com texto por fluxo
+        if (flow === 'A') {
+            document.getElementById('p8q').textContent = '"Qual é o seu maior desafio como founder nessa fase?"';
+            document.getElementById('p9q').textContent = '"Sua comunidade de fé te apoia em empreender ou vê isso com ressalvas? Como isso afeta você?"';
+        } else {
+            document.getElementById('p8q').textContent = '"Qual você imagina ser o maior desafio em empreender?"';
+            document.getElementById('p9q').textContent = '"Como você acha que sua comunidade de fé reagiria ao seu desejo de empreender?"';
+        }
+    }
+
+    /* ── Progresso ── */
+    function updateProgress() {
+        const pct = Math.round((step / TOTAL) * 100);
+        document.getElementById('pFill').style.width = pct + '%';
+        document.getElementById('pPct').textContent = pct + '%';
+        document.getElementById('pLabel').textContent = STEPS[step] || '';
+    }
+
+    /* ── Coletar dados ── */
+    function collectData() {
+        const checked = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value || '';
+        const val = (id) => (document.getElementById(id)?.value || '').trim();
+        const checkboxes = () => [...document.querySelectorAll('#step-5 input[type="checkbox"]:checked')].map(c => c.value);
+
+        const data = {
+            fluxo: flow,
+            nome: (val('firstName') + ' ' + val('lastName')).trim(),
+            email: val('email'),
+            telefone: val('phone'),
+            p1: val('p1'),
+            p2_escolha: checked('p2'),
+            p2_porque: val('p2why'),
+            p7_tipo: checked('p7yn'),
+            p7_detalhe: val('p7detail'),
+            p8: val('p8'),
+            p9: val('p9'),
+            p10_opcoes: checkboxes(),
+            p10_texto: val('p10'),
+            p11_faixa: checked('p11p'),
+            p11_texto: val('p11'),
+            p12: val('p12'),
+        };
+
+        if (flow === 'A') {
+            Object.assign(data, {
+                p3_faturamento: checked('p3'),
+                p4_parcerias: checked('p4yn'),
+                p4_detalhe: val('p4detail'),
+                p5_investimento: checked('p5yn'),
+                p5_detalhe: val('p5detail'),
+                p6_negocio: val('p6'),
+            });
+        }
+
+        return data;
+    }
+
+    /* ── Envio ── */
+    function submitForm() {
+        const data = collectData();
+        console.log('The Counselours Club — respostas:', JSON.stringify(data, null, 2));
+        // Conecte aqui ao seu backend, Airtable, Google Sheets ou Formspree
+        go(6);
+        document.getElementById('pFill').style.width = '100%';
+        document.getElementById('pPct').textContent = '100%';
+        document.getElementById('pLabel').textContent = 'Concluído';
+    }
+</script>
+</body>
+</html>

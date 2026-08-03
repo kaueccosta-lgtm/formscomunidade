@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Counselours Club — Roteiro de Pesquisa</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #12111a;
+            --accent: #c9a84c;
+            --accent-hover: #b8943e;
+            --bg: #f7f5f0;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --muted: #6b7280;
+            --border: #e5e0d5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: var(--primary);
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .header p { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 3px; }
+
+        /* ── Progress ── */
+        .progress-wrap {
+            background: var(--primary);
+            padding: 0 20px 14px;
+        }
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.72rem;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            background: rgba(255,255,255,0.12);
+            border-radius: 100px;
+            height: 3px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: var(--accent);
+            height: 100%;
+            border-radius: 100px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 660px;
+            margin: 0 auto;
+            padding: 28px 16px 80px;
+        }
+
+        /* ── Steps ── */
+        .step { display: none; }
+        .step.active {
+            display: block;
+            animation: up 0.3s ease;
+        }
+        @keyframes up {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Welcome ── */
+        .welcome {
+            background: var(--primary);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .welcome .mark { font-size: 2.2rem; margin-bottom: 14px; }
+        .welcome h2 { color: var(--accent); font-size: 1.45rem; margin-bottom: 8px; }
+        .welcome p { color: rgba(255,255,255,0.68); font-size: 0.88rem; line-height: 1.75; }
+        .welcome-stats {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+        .stat {
+            background: rgba(255,255,255,0.07);
+            border-radius: 8px;
+            padding: 8px 18px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.78rem;
+        }
+        .stat strong { color: var(--accent); display: block; font-size: 1.05rem; }
+
+        /* ── Tags e títulos ── */
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .section-title { font-size: 1.35rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .section-sub { color: var(--muted); font-size: 0.87rem; margin-bottom: 24px; }
+
+        /* ── Flow badge ── */
+        .flow-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.73rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+        }
+        .badge-a { background: #fefce8; border: 1px solid #fde68a; color: #92400e; }
+        .badge-b { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+
+        /* ── Seletor de fluxo ── */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .flow-card {
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            background: white;
+        }
+        .flow-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(201,168,76,0.12);
+        }
+        .flow-card.selected { border-color: var(--accent); background: #fffdf5; }
+        .flow-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .flow-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+        .flow-card p { font-size: 0.76rem; color: var(--muted); line-height: 1.45; }
+
+        /* ── Cartão de pergunta ── */
+        .qcard {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 14px;
+        }
+        .qnum {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .qtext {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 14px;
+            line-height: 1.55;
+        }
+        .qhint { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 14px; margin-top: -10px; }
+
+        /* ── Inputs ── */
+        textarea, input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 11px 13px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            color: var(--text);
+            background: #fafaf8;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        textarea { resize: vertical; min-height: 100px; }
+        textarea:focus, input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+        }
+        .input-row { display: flex; gap: 10px; }
+        .input-row > * { flex: 1; }
+        .input-col { display: flex; flex-direction: column; gap: 10px; }
+
+        /* ── Botões ── */
+        .btn-row { display: flex; gap: 10px; margin-top: 26px; }
+        .btn {
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: var(--accent); color: var(--primary); flex: 1; }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .btn-back { background: transparent; color: var(--muted); border: 1.5px solid var(--border); }
+        .btn-back:hover { border-color: var(--muted); color: var(--text); }
+
+        /* ── Sucesso ── */
+        .success {
+            text-align: center;
+            padding: 48px 0;
+        }
+        .success .mark { font-size: 3rem; margin-bottom: 18px; }
+        .success h2 { font-size: 1.55rem; color: var(--primary); margin-bottom: 10px; }
+        .success p { color: var(--muted); font-size: 0.9rem; max-width: 400px; margin: 0 auto 8px; }
+        .verse {
+            background: #fffdf5;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-top: 28px;
+            font-size: 0.85rem;
+            color: #92400e;
+            font-style: italic;
+        }
+
+        /* ── Link para outro form ── */
+        .other-form {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .other-form p { font-size: 0.82rem; color: var(--muted); }
+        .other-form strong { display: block; font-size: 0.9rem; color: var(--primary); margin-bottom: 2px; }
+        .other-form a {
+            background: var(--primary);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* ── Responsivo ── */
+        @media (max-width: 480px) {
+            .flow-grid  { grid-template-columns: 1fr; }
+            .input-row  { flex-direction: column; }
+            .welcome    { padding: 28px 18px; }
+            .qcard      { padding: 16px; }
+            .other-form { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>The Counselours Club</h1>
+    <p>Roteiro de Pesquisa · 30–40 min</p>
+</div>
+<div class="progress-wrap">
+    <div class="progress-meta">
+        <span id="pLabel">Início</span>
+        <span id="pPct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
+</div>
+
+<div class="container">
+
+    <!-- ═══════════════════════════ STEP 0: Boas-vindas + fluxo ═══════════ -->
+    <div class="step active" id="step-0">
+        <div class="welcome">
+            <div class="mark">✦</div>
+            <h2>Roteiro de Pesquisa</h2>
+            <p>Esta pesquisa investiga como a fé cristã influencia o perfil decisório e o impacto social de founders. Suas respostas são confidenciais e vão contribuir diretamente com a tese da The Counselours Club.</p>
+            <div class="welcome-stats">
+                <div class="stat"><strong>12</strong>perguntas</div>
+                <div class="stat"><strong>30–40</strong>minutos</div>
+                <div class="stat"><strong>6</strong>blocos</div>
+            </div>
+        </div>
+
+        <div class="qcard">
+            <div class="qnum">Antes de começar</div>
+            <div class="qtext">Você empreende atualmente?</div>
+            <div class="qhint">Isso define a versão das perguntas que fazem mais sentido para o seu momento.</div>
+            <div class="flow-grid">
+                <div class="flow-card" id="cardA" onclick="selectFlow('A')">
+                    <div class="icon">🚀</div>
+                    <h3>Sim, empreendo</h3>
+                    <p>Tenho um negócio, startup ou projeto rodando</p>
+                </div>
+                <div class="flow-card" id="cardB" onclick="selectFlow('B')">
+                    <div class="icon">💡</div>
+                    <h3>Ainda não</h3>
+                    <p>Estou na ideia, validação ou ainda não comecei</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-primary" onclick="nextStep()">Começar →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 1: Dados de contato ══════════════ -->
+    <div class="step" id="step-1">
+        <div id="badge1"></div>
+        <span class="tag">Dados de contato</span>
+        <h2 class="section-title">Vamos nos conhecer</h2>
+        <p class="section-sub">Suas informações são confidenciais e usadas somente para esta pesquisa.</p>
+
+        <div class="qcard">
+            <div class="qnum">Nome completo</div>
+            <div class="qtext">Como você se chama?</div>
+            <div class="input-row">
+                <input type="text" id="firstName" placeholder="Nome">
+                <input type="text" id="lastName" placeholder="Sobrenome">
+            </div>
+        </div>
+
+        <div class="qcard">
+            <div class="qnum">Contato</div>
+            <div class="qtext">E-mail e WhatsApp</div>
+            <div class="input-col" style="margin-top:12px;">
+                <input type="email" id="email" placeholder="seu@email.com">
+                <input type="tel" id="phone" placeholder="(11) 9 0000-0000">
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 2: Bloco 1 — Vocação (P1–P3) ════ -->
+    <div class="step" id="step-2">
+        <div id="badge2"></div>
+        <span class="tag">Bloco 1 · Vocação</span>
+        <h2 class="section-title">Chamado e sacrifício</h2>
+        <p class="section-sub">Queremos entender como você enxerga o chamado para empreender.</p>
+
+        <!-- P1 — ambos -->
+        <div class="qcard">
+            <div class="qnum">P1</div>
+            <div class="qtext">"Se Deus te chamasse para abandonar seu trabalho dos sonhos e começar um negócio, você iria? Por quê?"</div>
+            <textarea id="p1" placeholder="Conte seu raciocínio..."></textarea>
+        </div>
+
+        <!-- P2 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P2</div>
+            <div class="qtext" id="p2q">"Como nasceu a ideia do seu negócio? Houve um momento específico onde você pensou 'preciso fazer isso'?"</div>
+            <textarea id="p2" placeholder="Descreva esse momento..."></textarea>
+        </div>
+
+        <!-- P3 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P3</div>
+            <div class="qtext" id="p3q">"O que você já abriu mão para estar aqui como founder?"</div>
+            <textarea id="p3" placeholder="O que você sacrificou ou sacrificaria?"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 3: Bloco 2 — Propósito (P4–P6) ══ -->
+    <div class="step" id="step-3">
+        <div id="badge3"></div>
+        <span class="tag">Bloco 2 · Propósito</span>
+        <h2 class="section-title">Razão de ser</h2>
+        <p class="section-sub">O que vai além do produto ou serviço que você oferece.</p>
+
+        <!-- P4 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P4</div>
+            <div class="qtext" id="p4q">"Para que existe seu negócio além do produto ou serviço?"</div>
+            <textarea id="p4" placeholder="Qual é o propósito maior?"></textarea>
+        </div>
+
+        <!-- P5 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P5</div>
+            <div class="qtext" id="p5q">"Qual impacto você quer gerar na sociedade com seu negócio?"</div>
+            <textarea id="p5" placeholder="Como você quer mudar algo?"></textarea>
+        </div>
+
+        <!-- P6 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P6</div>
+            <div class="qtext" id="p6q">"Existem princípios que você nunca abre mão no seu negócio — sobre como você trata as pessoas, o que você vende, como você opera. Quais são?"</div>
+            <textarea id="p6" placeholder="Quais são seus valores inegociáveis?"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 4: Bloco 3 — Mordomia (P7–P9) ═══ -->
+    <div class="step" id="step-4">
+        <div id="badge4"></div>
+        <span class="tag">Bloco 3 · Mordomia</span>
+        <h2 class="section-title">Dinheiro e sucesso</h2>
+        <p class="section-sub">Como você pensa sobre riqueza, lucro e o que representa crescer.</p>
+
+        <!-- P7 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P7</div>
+            <div class="qtext" id="p7q">"Como você pensa sobre dinheiro e lucro? Qual é sua relação real com isso?"</div>
+            <textarea id="p7" placeholder="Sem filtro — como você realmente pensa sobre isso?"></textarea>
+        </div>
+
+        <!-- P8 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P8</div>
+            <div class="qtext" id="p8q">"Quando você pensa em lucro e crescimento financeiro — para quê realmente esse dinheiro serve na sua visão?"</div>
+            <textarea id="p8" placeholder="Para quê serve o dinheiro que você quer gerar?"></textarea>
+        </div>
+
+        <!-- P9 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P9</div>
+            <div class="qtext" id="p9q">"Se você nunca chegasse a ser milionário — qual seria o sucesso?"</div>
+            <textarea id="p9" placeholder="O que seria sucesso para você independente do dinheiro?"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 5: Bloco 4+5 — Fé + Contexto (P10–P11) ═ -->
+    <div class="step" id="step-5">
+        <div id="badge5"></div>
+        <span class="tag">Blocos 4 e 5 · Fé e Fundamento</span>
+        <h2 class="section-title">Fé nas decisões</h2>
+        <p class="section-sub">Como sua fé aparece no dia a dia de um negócio.</p>
+
+        <!-- P10 — texto muda por fluxo -->
+        <div class="qcard">
+            <div class="qnum">P10</div>
+            <div class="qtext" id="p10q">"De que forma sua fé aparece nas decisões práticas do seu negócio — contratação, produto, preço, cultura?"</div>
+            <textarea id="p10" placeholder="Dê exemplos concretos se puder..."></textarea>
+        </div>
+
+        <!-- P11 — ambos -->
+        <div class="qcard">
+            <div class="qnum">P11</div>
+            <div class="qtext">"Existe uma palavra de Deus ou passagem bíblica que fundamenta seu negócio?"</div>
+            <textarea id="p11" placeholder="Qual passagem e por quê ela importa?"></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="nextStep()">Continuar →</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 6: Bloco 6 — Encerramento (P12) ═ -->
+    <div class="step" id="step-6">
+        <div id="badge6"></div>
+        <span class="tag">Bloco 6 · Encerramento</span>
+        <h2 class="section-title">Espaço aberto</h2>
+        <p class="section-sub">O que ficou de fora — mas é importante.</p>
+
+        <!-- P12 — ambos -->
+        <div class="qcard">
+            <div class="qnum">P12</div>
+            <div class="qtext">"Há algo que eu não perguntei, mas que é importante você compartilhar sobre sua jornada, sua fé ou seu negócio?"</div>
+            <div class="qhint">Sem filtro. Esse é o espaço para o que você quiser dizer.</div>
+            <textarea id="p12" style="min-height:140px;" placeholder="Fique à vontade..."></textarea>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-back" onclick="prevStep()">← Voltar</button>
+            <button class="btn btn-primary" onclick="submitForm()">Enviar resposta ✦</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════ STEP 7: Confirmação ══════════════════ -->
+    <div class="step" id="step-7">
+        <div class="success">
+            <div class="mark">✦</div>
+            <h2>Obrigado pela sua participação!</h2>
+            <p>Suas respostas foram registradas e vão contribuir com a tese da The Counselours Club sobre fé, vocação e empreendedorismo.</p>
+            <p>Em breve entraremos em contato.</p>
+            <div class="verse">
+                "Tudo quanto fizerdes, fazei de todo o coração, como para o Senhor."<br>
+                — Colossenses 3:23
+            </div>
+            <div class="other-form">
+                <div>
+                    <strong>Também quer participar da comunidade?</strong>
+                    <p>Preencha o formulário de comunidade da The Counselours Club.</p>
+                </div>
+                <a href="index.html">Abrir →</a>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /container -->
+
+<script>
+    let step = 0;
+    let flow = null;
+    const TOTAL = 6;
+
+    const LABELS = ['Início','Contato','Vocação','Propósito','Mordomia','Fé e Fundamento','Encerramento','Concluído'];
+
+    /* ── Textos por fluxo ── */
+    const TEXTS = {
+        p2: {
+            A: '"Como nasceu a ideia do seu negócio? Houve um momento específico onde você pensou \'preciso fazer isso\'?"',
+            B: '"O que te impede de começar? O que falta para você dar o primeiro passo?"'
+        },
+        p3: {
+            A: '"O que você já abriu mão para estar aqui como founder?"',
+            B: '"O que você estaria disposto a abrir mão para empreender?"'
+        },
+        p4: {
+            A: '"Para que existe seu negócio além do produto ou serviço?"',
+            B: '"Se você fosse fundar uma empresa, qual seria o principal propósito?"'
+        },
+        p5: {
+            A: '"Qual impacto você quer gerar na sociedade com seu negócio?"',
+            B: '"Que tipo de impacto você gostaria de gerar com um negócio?"'
+        },
+        p6: {
+            A: '"Existem princípios que você nunca abre mão no seu negócio — sobre como você trata as pessoas, o que você vende, como você opera. Quais são?"',
+            B: '"Se você fosse construir um negócio, quais princípios seriam inegociáveis — sobre cultura, sobre as pessoas, sobre o que você venderia?"'
+        },
+        p7: {
+            A: '"Como você pensa sobre dinheiro e lucro? Qual é sua relação real com isso?"',
+            B: '"Como você pensa sobre dinheiro e lucro? Qual seria sua relação com isso?"'
+        },
+        p8: {
+            A: '"Quando você pensa em lucro e crescimento financeiro — para quê realmente esse dinheiro serve na sua visão?"',
+            B: '"Se você tivesse um negócio lucrativo, para quê usaria esse dinheiro? O que representaria?"'
+        },
+        p9: {
+            A: '"Se você nunca chegasse a ser milionário — qual seria o sucesso?"',
+            B: '"Se você empreendesse e nunca ficasse milionário — como definiria sucesso?"'
+        },
+        p10: {
+            A: '"De que forma sua fé aparece nas decisões práticas do seu negócio — contratação, produto, preço, cultura?"',
+            B: '"Como você imagina que sua fé apareceria nas decisões práticas de um negócio — contratação, produto, preço, cultura?"'
+        }
+    };
+
+    /* ── Seleção de fluxo ── */
+    function selectFlow(f) {
+        flow = f;
+        document.getElementById('cardA').classList.toggle('selected', f === 'A');
+        document.getElementById('cardB').classList.toggle('selected', f === 'B');
+    }
+
+    /* ── Navegação ── */
+    function nextStep() {
+        if (step === 0 && !flow) {
+            alert('Selecione se você empreende ou não para continuar.');
+            return;
+        }
+        go(step + 1);
+    }
+
+    function prevStep() { go(step - 1); }
+
+    function go(n) {
+        document.getElementById('step-' + step).classList.remove('active');
+        step = n;
+        document.getElementById('step-' + step).classList.add('active');
+        applyFlow();
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ── Aplicar textos e badges do fluxo ── */
+    function applyFlow() {
+        if (!flow) return;
+
+        const badgeHTML = flow === 'A'
+            ? '<div class="flow-badge badge-a">🚀 Fluxo A — Empreendedor</div>'
+            : '<div class="flow-badge badge-b">💡 Fluxo B — Em exploração</div>';
+
+        [1,2,3,4,5,6].forEach(i => {
+            const el = document.getElementById('badge' + i);
+            if (el) el.innerHTML = badgeHTML;
+        });
+
+        Object.keys(TEXTS).forEach(key => {
+            const el = document.getElementById(key + 'q');
+            if (el) el.textContent = TEXTS[key][flow];
+        });
+    }
+
+    /* ── Progresso ── */
+    function updateProgress() {
+        const pct = Math.round((step / TOTAL) * 100);
+        document.getElementById('pFill').style.width = pct + '%';
+        document.getElementById('pPct').textContent = pct + '%';
+        document.getElementById('pLabel').textContent = LABELS[step] || '';
+    }
+
+    /* ── Coletar dados ── */
+    function collectData() {
+        const val = id => (document.getElementById(id)?.value || '').trim();
+        return {
+            fluxo: flow,
+            nome: (val('firstName') + ' ' + val('lastName')).trim(),
+            email: val('email'),
+            telefone: val('phone'),
+            p1: val('p1'),
+            p2: val('p2'),
+            p3: val('p3'),
+            p4: val('p4'),
+            p5: val('p5'),
+            p6: val('p6'),
+            p7: val('p7'),
+            p8: val('p8'),
+            p9: val('p9'),
+            p10: val('p10'),
+            p11: val('p11'),
+            p12: val('p12'),
+        };
+    }
+
+    /* ── Envio ── */
+    function submitForm() {
+        const data = collectData();
+        console.log('The Counselours Club — pesquisa:', JSON.stringify(data, null, 2));
+        // Conecte aqui ao seu backend, Airtable, Google Sheets ou Formspree
+        go(7);
+        document.getElementById('pFill').style.width = '100%';
+        document.getElementById('pPct').textContent = '100%';
+        document.getElementById('pLabel').textContent = 'Concluído';
+    }
+
+    updateProgress();
+</script>
+</body>
+</html>
