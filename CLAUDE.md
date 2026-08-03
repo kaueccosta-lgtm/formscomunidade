@@ -204,6 +204,13 @@ Se você quiser saber mais, posso te contar com mais detalhe o que estamos const
 
 ---
 
+## LINKS IMPORTANTES
+
+- **Calendário Agosto 2026:** https://formscomunidade.vercel.app/calendario
+- **Formulário da comunidade:** https://formscomunidade.vercel.app/
+
+---
+
 ## BRANCH ATIVA
 
 `claude/hopeful-ptolemy-ZwfUP`
