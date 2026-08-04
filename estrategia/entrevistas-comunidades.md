@@ -86,8 +86,41 @@ Entrevistar alguém que construiu um tipo diferente de comunidade pode revelar p
 
 ---
 
+## Cadência semanal
+
+**Regra:** toda quinta-feira — 2 ações (entrevista ou pesquisa) sobre comunidades.
+
+Formatos válidos para contar como uma ação:
+- Entrevista com fundador ou community manager (30-60 min)
+- Pesquisa aprofundada de uma comunidade (site, posts, modelo, como entrar)
+- Leitura de um material relevante com anotações (artigo longo, case, livro de capítulo)
+
+---
+
+## Tracker semanal
+
+### Agosto 2026
+
+| Semana | Data (qui) | Ação 1 | Ação 2 | Feito |
+|---|---|---|---|---|
+| Sem 1 | 06/ago | | | ☐ |
+| Sem 2 | 13/ago | | | ☐ |
+| Sem 3 | 20/ago | | | ☐ |
+| Sem 4 | 27/ago | | | ☐ |
+
+### Setembro 2026
+
+| Semana | Data (qui) | Ação 1 | Ação 2 | Feito |
+|---|---|---|---|---|
+| Sem 1 | 03/set | | | ☐ |
+| Sem 2 | 10/set | | | ☐ |
+| Sem 3 | 17/set | | | ☐ |
+| Sem 4 | 24/set | | | ☐ |
+
+---
+
 ## Registro de entrevistas realizadas
 
-| Pessoa | Comunidade | Data | Status | Insights principais |
-|---|---|---|---|---|
-| — | — | — | — | — |
+| Pessoa | Comunidade | Data | Insights principais |
+|---|---|---|---|
+| — | — | — | — |
