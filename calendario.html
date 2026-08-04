@@ -99,6 +99,7 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
 .c-producao{background:rgba(155,114,207,.15);color:#9b72cf}
 .c-planejar{background:rgba(58,184,176,.15);color:#3ab8b0}
 .c-semestre{background:rgba(207,114,114,.15);color:#cf7272}
+.c-entrevista{background:rgba(212,111,58,.15);color:#d46f3a}
 
 /* ── Day panel ── */
 .day-inner{display:flex;flex-direction:column;height:100%;overflow:hidden}
@@ -249,6 +250,7 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
         <div class="leg-item"><div class="leg-dot" style="background:#9b72cf"></div>Criar posts</div>
         <div class="leg-item"><div class="leg-dot" style="background:#3ab8b0"></div>Planejar conteúdos</div>
         <div class="leg-item"><div class="leg-dot" style="background:#cf7272"></div>Próximo semestre</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#d46f3a"></div>Entrevistas / pesquisa</div>
       </div>
     </div>
     <div class="cal-wrap">
@@ -329,22 +331,23 @@ var TYPES = {
   tese:     {color:'#3aad72', label:'Tese'},
   producao: {color:'#9b72cf', label:'Produção'},
   planejar: {color:'#3ab8b0', label:'Planejar'},
-  semestre: {color:'#cf7272', label:'Semestre'}
+  semestre:    {color:'#cf7272', label:'Semestre'},
+  entrevista:  {color:'#d46f3a', label:'Entrevista'}
 };
 
 var PRESETS = {
   '2026-08-01':[{type:'producao',label:'Criar posts'}],
   '2026-08-03':[{type:'grupo',label:'Mensagem no grupo'},{type:'post',label:'Publicar post'}],
-  '2026-08-06':[{type:'post',label:'Publicar post'},{type:'tese',label:'Escrever tese'}],
+  '2026-08-06':[{type:'post',label:'Publicar post'},{type:'tese',label:'Escrever tese'},{type:'entrevista',label:'Entrevistas / pesquisa'}],
   '2026-08-08':[{type:'producao',label:'Criar posts'}],
   '2026-08-10':[{type:'grupo',label:'Mensagem no grupo'},{type:'post',label:'Publicar post'}],
-  '2026-08-13':[{type:'post',label:'Publicar post'},{type:'planejar',label:'Planejar conteúdos'}],
+  '2026-08-13':[{type:'post',label:'Publicar post'},{type:'planejar',label:'Planejar conteúdos'},{type:'entrevista',label:'Entrevistas / pesquisa'}],
   '2026-08-15':[{type:'producao',label:'Criar posts'}],
   '2026-08-17':[{type:'grupo',label:'Mensagem no grupo'},{type:'post',label:'Publicar post'}],
-  '2026-08-20':[{type:'post',label:'Publicar post'},{type:'tese',label:'Escrever tese'}],
+  '2026-08-20':[{type:'post',label:'Publicar post'},{type:'tese',label:'Escrever tese'},{type:'entrevista',label:'Entrevistas / pesquisa'}],
   '2026-08-22':[{type:'producao',label:'Criar posts'}],
   '2026-08-24':[{type:'grupo',label:'Mensagem no grupo'},{type:'post',label:'Publicar post'}],
-  '2026-08-27':[{type:'post',label:'Publicar post'},{type:'planejar',label:'Planejar conteúdos'}],
+  '2026-08-27':[{type:'post',label:'Publicar post'},{type:'planejar',label:'Planejar conteúdos'},{type:'entrevista',label:'Entrevistas / pesquisa'}],
   '2026-08-29':[{type:'producao',label:'Criar posts'}],
   '2026-08-31':[{type:'grupo',label:'Mensagem no grupo'},{type:'post',label:'Publicar post'},{type:'semestre',label:'Criar próximo semestre'}]
 };

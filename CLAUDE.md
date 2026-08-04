@@ -162,7 +162,9 @@ Se você quiser saber mais, posso te contar com mais detalhe o que estamos const
 | 29/jun (seg) | Copy do post — Founder cristão · Forms de Tese |
 | 30/jun (ter) | Publicar post — Founder cristão · Revisão do mês · Lista expandida · Análise parcial · **Escrever sobre a tese** |
 
-**Regra fixa (toda quinta-feira):** Escrever sobre a tese
+**Regras fixas (toda quinta-feira):**
+- Escrever sobre a tese
+- Entrevistar ou pesquisar comunidade (2 por semana — 1 entrevista + 1 pesquisa, ou 2 entrevistas)
 
 ---
 
@@ -201,6 +203,13 @@ Se você quiser saber mais, posso te contar com mais detalhe o que estamos const
 - `.claude/commands/planejamento-estrategico.md` — agente de planejamento estratégico
 - `.claude/commands/planejar-semana.md` — agente de planejamento semanal
 - `.claude/commands/status-membros.md` — agente de atualização de membros
+
+---
+
+## LINKS IMPORTANTES
+
+- **Calendário Agosto 2026:** https://formscomunidade.vercel.app/calendario
+- **Formulário da comunidade:** https://formscomunidade.vercel.app/
 
 ---
 
